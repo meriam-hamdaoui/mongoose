@@ -26,7 +26,7 @@ const firstPerson = new Person({
   favouriteFoods: ["grapes", "cake", "burritos"],
 });
 //i had to comment the save line to evoid the repetition
-//firstPerson.save((err) => errorMsg(err, firstPerson));
+// firstPerson.save((err) => errorMsg(err, firstPerson));
 
 //create many records
 const otherPeople = [
@@ -47,7 +47,7 @@ const otherPeople = [
   },
 ];
 Person.create(otherPeople);
-// console.log(otherPeople);
+console.log("otherPeople =>" + otherPeople);
 
 //@api http://localhost:5000/api/people
 //@description display all the people list
@@ -60,7 +60,6 @@ router.get("/", (req, res) => {
 
 //@api http://localhost:5000/api/people
 //@description find one person by id
-//access public
 router.get("/:_id", (req, res) => {
   let { _id } = req.params;
   Person.findOne({ _id })
