@@ -58,4 +58,14 @@ router.get("/", (req, res) => {
     .catch((err) => res.status(400).json(err));
 });
 
+//@api http://localhost:5000/api/people
+//@description find one person by id
+//access public
+router.get("/:_id", (req, res) => {
+  let { _id } = req.params;
+  Person.findOne({ _id })
+    .then((person) => res.send(person))
+    .catch((err) => res.send(err));
+});
+
 module.exports = router;
